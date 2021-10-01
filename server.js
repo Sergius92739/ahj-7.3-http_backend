@@ -6,7 +6,9 @@ const path = require('path');
 const FileHandler = require('./api/FileHandler');
 
 const app = new Koa();
-const public = path.join(__dirname, '/public/images');
+const public = path.join(__dirname, '/public');
+app.use(koaStatic(public));
+
 exports.public = public;
 const port = process.env.PORT || 3000;
 const fileHandler = new FileHandler();
@@ -17,7 +19,6 @@ app.use(koaBody({
   multipart: true,
   json: true
 }))
-app.use(koaStatic(public));
 
 app.use(async (ctx) => {
   const { method, id } = ctx.request.query;
@@ -68,6 +69,7 @@ exports.start = async () => {
   try {
     app.listen(port, () => {
       console.log(`The server is running on port ${port}`);
+      console.log('http://localhost:3000')
       console.log('https://ahj-7-3-sergius-image-manager.herokuapp.com/');
     })
   }
