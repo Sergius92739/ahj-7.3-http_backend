@@ -14,6 +14,8 @@ module.exports = class FileHandler {
     const fileName = id + extension;
     const url = path.join(server.public, fileName);
     const file = fs.readFileSync(data.path, 'binary');
+    console.log(url);
+    console.log(file);
     fs.writeFileSync(url, file, 'binary');
     this.memory.set(id, url);
     console.log('Файл сохранён');
