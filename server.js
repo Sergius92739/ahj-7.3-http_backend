@@ -68,7 +68,7 @@ exports.start = async () => {
   try {
     app.listen(port, () => {
       console.log(`The server is running on port ${port}`);
-      console.log('http://localhost:3000');
+      console.log('https://ahj-7-3-sergius-image-manager.herokuapp.com/');
     })
   }
   catch (err) {
