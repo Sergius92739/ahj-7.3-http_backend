@@ -23,7 +23,10 @@ module.exports = class FileHandler {
 
   allImages() {
     const arr = [];
-    this.memory.forEach((key, value) => arr.push({ id: value, path: key }));
+    this.memory.forEach((value) => {
+      const temp = value.split('/');
+      arr.push(temp[temp.length - 1]);
+    });
     console.log('Массив данных сформирован');
     return arr;
   }
