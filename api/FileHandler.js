@@ -18,7 +18,7 @@ module.exports = class FileHandler {
     fs.writeFileSync(url, file, 'binary');
     this.memory.set(id, url);
     console.log('Файл сохранён');
-    return fileName;
+    return { fileName };
   }
 
   allImages() {
