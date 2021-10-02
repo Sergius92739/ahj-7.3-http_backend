@@ -22,6 +22,9 @@ app.use(koaBody({
 }))
 
 app.use(async (ctx) => {
+  if (ctx.request.method === 'GET') {
+    console.log(ctx.request)
+  }
   const { method, id } = ctx.request.query;
   let result;
   switch (method) {
