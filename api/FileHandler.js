@@ -25,7 +25,7 @@ module.exports = class FileHandler {
     const arr = [];
     this.memory.forEach((value) => {
       const temp = value.split('/');
-      arr.push(temp[temp.length - 1]);
+      arr.push({ fileName: temp[temp.length - 1] });
     });
     console.log('Массив данных сформирован');
     return arr;
