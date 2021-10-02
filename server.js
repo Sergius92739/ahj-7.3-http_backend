@@ -1,3 +1,4 @@
+const http = require('http');
 const Koa = require('koa');
 const koaBody = require('koa-body');
 const cors = require('@koa/cors');
@@ -67,11 +68,10 @@ app.use(async (ctx) => {
 
 exports.start = async () => {
   try {
-    app.listen(port, () => {
-      console.log(`The server is running on port ${port}`);
-      console.log('http://localhost:3000')
-      console.log('https://ahj-7-3-sergius-image-manager.herokuapp.com/');
-    })
+    http.createServer(app.callback()).listen(port);
+    console.log(`The server is running on port ${port}`);
+    console.log('http://localhost:3000')
+    console.log('https://ahj-7-3-sergius-image-manager.herokuapp.com/');
   }
   catch (err) {
     console.log(err);
