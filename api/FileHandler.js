@@ -16,9 +16,9 @@ module.exports = class FileHandler {
     const file = fs.readFileSync(data.path, 'binary');
     console.log(url);
     fs.writeFileSync(url, file, 'binary');
-    this.memory.set(id, `https://ahj-7-3-sergius-image-manager.herokuapp.com/public/${fileName}`);
+    this.memory.set(id, url);
     console.log('Файл сохранён');
-    return { id, url: `https://ahj-7-3-sergius-image-manager.herokuapp.com/public/${fileName}` };
+    return { id, url: fileName };
   }
 
   allImages() {
