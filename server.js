@@ -25,7 +25,7 @@ app.use(async (ctx) => {
   if (ctx.request.method === 'GET') {
     console.log(ctx.request);
   }
-  const { method, id } = ctx.request.query;
+  const { method } = ctx.request.query;
   let result;
   switch (method) {
     case 'saveImage':
@@ -53,6 +53,7 @@ app.use(async (ctx) => {
       return;
     case 'removeImage':
       try {
+        const { id } = ctx.request.body;
         result = fileHandler.removeImage(id);
         ctx.response.body = result;
       }
